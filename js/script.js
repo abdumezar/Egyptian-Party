@@ -53,7 +53,7 @@ function countChars(word) {
 // Set the date we're counting down to
 let countDownDate = new Date("Jan 20, 2023 21:17:00").getTime();
 // Update the count down every 1 second
-let x = setInterval(function() {
+let x = setInterval(function () {
   // Get today's date and time
   let now = new Date().getTime();
   // Find the distance between now and the count down date
@@ -63,12 +63,10 @@ let x = setInterval(function() {
   let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
   $(".days").html(days);
   $(".hours").html(hours);
   $(".minutes").html(minutes);
   $(".seconds").html(seconds);
-
   // If the count down is finished
   if (distance < 0) {
     clearInterval(x);

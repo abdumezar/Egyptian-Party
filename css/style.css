@@ -104,7 +104,7 @@ nav li{
 }
 
 #duration h6{
-  font-size: 50px;
+  font-size: 3em;
 }
 
 #duration .box{
@@ -114,8 +114,6 @@ nav li{
   padding: 5em;
   border: 3px solid white;
   border-radius: 8px;
-
-
   background-color: rgba(0, 0, 0, 0.4);
 }
 
@@ -156,8 +154,22 @@ nav li{
 
   #duration .box{
     padding: 5em;
+    width: 90%;
+    margin: 0.8em auto;
     font-size: 0.8em;
   }
+
+  .socialBox{
+    height: 2.2em;
+    width: 2.2em;
+    margin: 0 1em;
+    font-size: 1em;
+  }
+
+  .social{
+    justify-content: space-between;
+  }
+
 }
 
 @media only screen and (max-width: 600px) {
@@ -174,4 +186,10 @@ nav li{
     width: 65%;
     margin: 1em auto;
   }
+
+  nav{
+    left: -50%;
+    right: 110%;
+  }
+
 }
