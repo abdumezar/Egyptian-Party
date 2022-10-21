@@ -205,6 +205,7 @@ nav li{
   #contacts textarea{
     height: 12em;
   }
+
 }
 
 @media only screen and (max-width: 600px) {
@@ -231,14 +232,11 @@ nav li{
   }
 
   nav{
-    left: -50%;
-    right: 110%;
+    left: -30%;
+    right: 100%;
   }
 
   .socialBox{
-    height: 2em;
-    width: 2em;
-    padding: 0.8em;
-    font-size: 1.8em;
+    font-size: 1.5em;
   }
 }
