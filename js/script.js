@@ -10,10 +10,10 @@ function closeNav() {
   let winWidth = window.matchMedia("(max-width: 600px)")
   if (winWidth.matches) {
     $(".innerNav,nav").animate({ left: "-50%", right: "110%" }, 500);
-    $(".openMenu").animate({ left: "0", right: "100%" }, 500);
+    $(".openMenu").animate({ left: "0", right: "auto", color: "white" }, 500);
   } else {
     $(".innerNav,nav").animate({ left: "-25%", right: "100%" }, 500);
-    $(".openMenu").animate({ left: "0", right: "85%" }, 500);
+    $(".openMenu").animate({ left: "0", right: "auto", }, 500).css("backgroundColor", "white");
   }
 }
 
@@ -24,7 +24,7 @@ function openNav() {
     $(".openMenu").animate({ left: "-25%", right: "100%" }, 500);
   } else {
     $(".innerNav,nav").animate({ left: "0", right: "85%" }, 500);
-    $(".openMenu").animate({ left: "-20%", right: "100%" }, 500);
+    $(".openMenu").animate({ left: "-25%", right: "100%" }, 500);
   }
 }
 
