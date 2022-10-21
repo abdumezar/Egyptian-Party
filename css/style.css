@@ -23,11 +23,12 @@ header h6{
 nav a{
   text-decoration: none;
   color: white;
+  transition: all 0.3s;
 }
 nav a:hover {
   text-decoration: none;
   cursor: pointer;
-  color: #09c
+  color: #f1c40f;
 }
 
 nav{
@@ -42,6 +43,7 @@ nav{
 
 nav .innerNav{
   padding: 3.5em;
+  font-size: 1.2em;
 }
 
 nav li{
