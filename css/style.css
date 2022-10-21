@@ -235,5 +235,10 @@ nav li{
     right: 110%;
   }
 
-
+  .socialBox{
+    height: 2em;
+    width: 2em;
+    padding: 0.8em;
+    font-size: 1.8em;
+  }
 }
