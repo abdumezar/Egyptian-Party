@@ -28,28 +28,19 @@ function openNav() {
   }
 }
 
-$(".singer").click(function () {
+$(".singer").click(function (e) {
+  $(".activeSinger i").removeClass("fa-chevron-up");
+  $(".activeSinger i").addClass("fa-chevron-down");
   $(".singer").next().not($(this).next()).slideUp(500);
   $(this).next().slideToggle(500);
+  $(".singer").not(this).removeClass("activeSinger");
+  $(this).toggleClass("activeSinger");
+  $(".activeSinger i").removeClass("fa-chevron-down");
+  $(".activeSinger i").addClass("fa-chevron-up");
+  console.log($(this).first())
 });
 
-function countChars(word) {
-  if (word.value.length < 100) {
-    $(".remainingChars").text(100 - word.value.length);
-  } else {
-    $(".remainingChars").text("your available character finished");
-  }
-}
-
-// $(".activeSlide i").removeClass("fa-chevron-down");
-// $(".activeSlide i").addClass("fa-chevron-up");
-
-// $(document).click(function(e){
-//   console.log(e.target);
-// });
-
-/****************************************************************************************************/
-
+// Counter down
 // Set the date we're counting down to
 let countDownDate = new Date("Jan 20, 2023 21:17:00").getTime();
 // Update the count down every 1 second
@@ -59,14 +50,10 @@ let x = setInterval(function () {
   // Find the distance between now and the count down date
   let distance = countDownDate - now;
   // Time calculations for days, hours, minutes and seconds
-  let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  $(".days").html(days);
-  $(".hours").html(hours);
-  $(".minutes").html(minutes);
-  $(".seconds").html(seconds);
+  $(".days").html(Math.floor(distance / (1000 * 60 * 60 * 24)));
+  $(".hours").html(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+  $(".minutes").html(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
+  $(".seconds").html(Math.floor((distance % (1000 * 60)) / 1000));
   // If the count down is finished
   if (distance < 0) {
     clearInterval(x);
@@ -81,3 +68,62 @@ let x = setInterval(function () {
     `);
   }
 }, 1000);
+
+// Validations
+$("#emailInput").focusout(CheckMail);
+$("#nameInput").focusout(CheckName);
+$("#messageInput").focusout(CheckMsg);
+$("#messageInput").keyup(function () {
+  countChars(this);
+});
+
+function CheckMsg() {
+  if ($(this).val() == "") {
+    $(".invalid-feedback.fillMsg").addClass("d-block");
+    $(".invalid-feedback.shortMsg").removeClass("d-block");
+  } else {
+    $(".invalid-feedback.fillMsg").removeClass("d-block");
+    if ($(this).val().length < 5) {
+      $(".invalid-feedback.shortMsg").addClass("d-block");
+    } else {
+      $(".invalid-feedback.shortMsg").removeClass("d-block");
+    }
+  }
+}
+
+function CheckName() {
+  if ($(this).val().length < 3) {
+    $(".invalid-feedback.shortName").addClass("d-block");
+  } else {
+    $(".invalid-feedback.shortName").removeClass("d-block");
+  }
+  if ($(this).val() == "") {
+    $(".invalid-feedback.nameFill").addClass("d-block");
+    $(".invalid-feedback.shortName").removeClass("d-block");
+  } else {
+    $(".invalid-feedback.nameFill").removeClass("d-block");
+  }
+}
+
+function CheckMail() {
+  let emailReg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  if (!emailReg.test($(this).val())) {
+    $(".invalid-feedback.emailInvalid").addClass("d-block");
+  } else {
+    $(".invalid-feedback.emailInvalid").removeClass("d-block");
+  }
+  if ($(this).val() == "") {
+    $(".invalid-feedback.emailFill").addClass("d-block");
+    $(".invalid-feedback.emailInvalid").removeClass("d-block");
+  } else {
+    $(".invalid-feedback.emailFill").removeClass("d-block");
+  }
+}
+
+function countChars(word) {
+  if (word.value.length < 100) {
+    $(".remainingChars").text(100 - word.value.length);
+  } else {
+    $(".remainingChars").text("your available character finished");
+  }
+}
