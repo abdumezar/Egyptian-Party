@@ -132,6 +132,7 @@ nav li{
   height: 2.5em;
   width: 2.5em;
   margin: 0 1em;
+  padding: 1em;
   font-size: 1.5em;
   border: 1px solid black;
   border-radius: 5px;
@@ -144,6 +145,8 @@ nav li{
   color: white;
   cursor: pointer;
 }
+
+/******************************************************************************************************************************/
 
 @media only screen and (max-width: 1400px) {
   body {
@@ -162,9 +165,17 @@ nav li{
   }
 
   .socialBox{
-    height: 2.2em;
-    width: 2.2em;
+    height: 2.5em;
+    width: 2.5em;
     margin: 0 1em;
+    font-size: 1.3em;
+  }
+}
+
+@media only screen and (max-width: 993px) {
+
+  .socialBox{
+    margin: 0 0.5em;
     font-size: 1em;
   }
 
@@ -172,6 +183,28 @@ nav li{
     justify-content: space-between;
   }
 
+  #contacts textarea{
+    height: 12em;
+  }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 600px) {
+
+  .socialBox{
+    height: 3em;
+    width: 3em;
+    padding: 0.8em;
+    margin: 0 0.5em;
+    font-size: 1.6em;
+  }
+
+  .social{
+    justify-content: space-between;
+  }
+
+  #contacts textarea{
+    height: 12em;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -183,8 +216,16 @@ nav li{
     font-size: 3.5em;
   }
 
+  #duration{
+    padding: 1em 0 !important;
+  }
+
+  #duration .container{
+    width: 85% !important;
+  }
+
   #duration .box{
-    padding: 5em;
+    padding: 2.5em;
     width: 65%;
     margin: 1em auto;
   }
@@ -193,4 +234,6 @@ nav li{
     left: -50%;
     right: 110%;
   }
+
+
 }
